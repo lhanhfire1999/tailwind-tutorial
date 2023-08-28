@@ -11,8 +11,9 @@
     <main>
       <header class="text-zinc-100">
         <nav
-          class="sticky left-0 top-0 w-full bg-gradient-to-r from-rose-500 to-pink-500"
+          class="sticky left-0 top-0 flex w-full bg-gradient-to-r from-rose-500 to-pink-500"
         >
+          <!-- Logo -->
           <div class="inline-flex h-full cursor-pointer items-center gap-2 p-2">
             <img
               src="./assets/images/logo-inverted.png"
@@ -23,6 +24,32 @@
               tw:<span class="text-sky-900">md</span>
             </div>
           </div>
+
+          <!-- Menu -->
+          <ul class="flex flex-1 items-center justify-end">
+            <li class="menu-item">Home</li>
+            <li class="menu-item">Lineup</li>
+            <li class="menu-item group relative">
+              <span>Tickets</span>
+
+              <!-- Sub Menu -->
+              <ul
+                class="absolute right-0 top-full hidden whitespace-nowrap rounded-b-md bg-pink-500 group-hover:block"
+              >
+                <li
+                  class="cursor-pointer p-2 font-bold text-pink-200 hover:bg-white/10 hover:text-zinc-200"
+                >
+                  Single day ticket
+                </li>
+                <li
+                  class="cursor-pointer p-2 font-bold text-pink-200 hover:bg-white/10 hover:text-zinc-200"
+                >
+                  7 days ticket
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">Support</li>
+          </ul>
         </nav>
       </header>
     </main>
