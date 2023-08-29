@@ -6,6 +6,30 @@
     <link href="../dist/output.css" rel="stylesheet" />
     <script defer src="./assets/fontawesome/js/solid.min.js"></script>
     <script defer src="./assets/fontawesome/js/fontawesome.min.js"></script>
+
+    <script>
+      window.onload = () => {
+        const mobileMenuIcon = document.querySelector("#mobile-menu-items");
+        const mobileMenuTicket = document.querySelector("#mobile-menu-ticket");
+
+        mobileMenuIcon.addEventListener("click", () => {
+          if (mobileMenuIcon.classList.contains("open")) {
+            mobileMenuIcon.classList.remove("open");
+            mobileMenuTicket.classList.remove("open");
+          } else {
+            mobileMenuIcon.classList.add("open");
+          }
+        });
+
+        mobileMenuTicket.addEventListener("click", () => {
+          if (mobileMenuTicket.classList.contains("open")) {
+            mobileMenuTicket.classList.remove("open");
+          } else {
+            mobileMenuTicket.classList.add("open");
+          }
+        });
+      };
+    </script>
   </head>
   <body>
     <main>
@@ -24,9 +48,66 @@
               tw:<span class="text-sky-900">md</span>
             </div>
           </div>
+          <!-- Menu mobile -->
+          <div class="my-auto ml-auto mr-4 block md:hidden">
+            <!-- Menu Icon -->
+            <div
+              id="mobile-menu-items"
+              class="group peer flex cursor-pointer flex-col items-center justify-center"
+            >
+              <span
+                class="relative top-0 h-1 w-8 rounded-full bg-zinc-200 transition-all group-open:top-2 group-open:rotate-45"
+              ></span>
+              <span
+                class="mt-1 h-1 w-8 rounded-full bg-zinc-200 opacity-100 transition-all group-open:opacity-0"
+              ></span>
+              <span
+                class="relative top-0 mt-1 h-1 w-8 rounded-full bg-zinc-200 transition-all group-open:-top-2 group-open:-rotate-45"
+              ></span>
+            </div>
 
-          <!-- Menu -->
-          <ul class="flex flex-1 items-center justify-end">
+            <ul
+              class="absolute left-0 top-full w-full bg-gradient-to-r from-rose-500 to-pink-500 opacity-0 transition-all peer-open:opacity-100 md:hidden"
+            >
+              <li
+                class="cursor-pointer p-4 text-center font-bold text-pink-200 hover:bg-white/10 hover:text-zinc-200"
+              >
+                Home
+              </li>
+              <li
+                class="cursor-pointer p-4 text-center font-bold text-pink-200 hover:bg-white/10 hover:text-zinc-200"
+              >
+                Lineup
+              </li>
+              <li
+                class="group relative cursor-pointer text-pink-200 hover:bg-white/10 hover:text-zinc-200"
+                id="mobile-menu-ticket"
+              >
+                <span class="block p-4 text-center font-bold">Tickets</span>
+
+                <ul class="hidden group-open:block">
+                  <li
+                    class="cursor-pointer p-4 text-center font-bold text-pink-200 hover:bg-white/10 hover:text-zinc-200"
+                  >
+                    Single day ticket
+                  </li>
+                  <li
+                    class="cursor-pointer p-4 text-center font-bold text-pink-200 hover:bg-white/10 hover:text-zinc-200"
+                  >
+                    7 days ticket
+                  </li>
+                </ul>
+              </li>
+              <li
+                class="cursor-pointer p-4 text-center font-bold text-pink-200 hover:bg-white/10 hover:text-zinc-200"
+              >
+                Support
+              </li>
+            </ul>
+          </div>
+
+          <!-- Menu desktop -->
+          <ul class="hidden flex-1 items-center justify-end md:flex">
             <li class="menu-item">Home</li>
             <li class="menu-item">Lineup</li>
             <li class="menu-item group relative">
