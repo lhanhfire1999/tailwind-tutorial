@@ -12,6 +12,7 @@
         const mobileMenuIcon = document.querySelector("#mobile-menu-items");
         const mobileMenuTicket = document.querySelector("#mobile-menu-ticket");
         const emailForm = document.querySelector("#email-form");
+        const darkModeToggle = document.querySelector("#dark-mode-toggle");
 
         mobileMenuIcon.addEventListener("click", () => {
           if (mobileMenuIcon.classList.contains("open")) {
@@ -33,12 +34,28 @@
         emailForm.addEventListener("submit", (e) => {
           e.preventDefault();
         });
+
+        darkModeToggle.addEventListener("click", () => {
+          const isDarkTheme = document.body.classList.contains("dark");
+          if (isDarkTheme) {
+            document.body.classList.remove("dark");
+          } else {
+            document.body.classList.add("dark");
+          }
+        });
       };
     </script>
   </head>
-  <body>
-    <main>
-      <header class="text-zinc-100">
+  <body class="dark">
+    <main class="bg-zinc-200 dark:bg-zinc-900">
+      <div
+        id="dark-mode-toggle"
+        class="fixed right-0 top-24 z-10 inline-block w-12 cursor-pointer rounded-l-lg bg-zinc-900 p-2 text-3xl text-zinc-200 dark:bg-zinc-200 dark:text-zinc-900"
+      >
+        <i class="fa-solid fa-sun dark:hidden"></i>
+        <i class="fa-solid fa-moon hidden dark:inline"></i>
+      </div>
+      <header>
         <nav
           class="sticky left-0 top-0 z-10 flex w-full bg-gradient-to-r from-rose-500 to-pink-500"
         >
@@ -192,127 +209,133 @@
         </div>
       </header>
 
-      <!-- Headliners section -->
-      <div class="mx-auto mt-20 max-w-screen-lg text-zinc-900">
-        <h2>Headliners</h2>
-        <p>
-          Experience the sonic delight from these made-up artists across 7 days
-          that music fans are calling “one of the many gigs that will happen
-          this year”
-        </p>
+      <div class="mx-auto max-w-screen-lg text-zinc-900 dark:text-zinc-200">
+        <!-- Headliners section -->
+        <div class="mt-20">
+          <h2>Headliners</h2>
+          <p>
+            Experience the sonic delight from these made-up artists across 7
+            days that music fans are calling “one of the many gigs that will
+            happen this year”
+          </p>
 
-        <div class="flex">
+          <div class="flex">
+            <div
+              id="carousel"
+              class="flex snap-x gap-4 overflow-x-auto scroll-smooth pb-5"
+            >
+              <div class="min-w-[80%] snap-start md:min-w-[40%]">
+                <div
+                  class="h-80 w-full snap-center rounded-xl bg-band1 bg-cover bg-center shadow-md shadow-black/20"
+                ></div>
+                <h5 class="mt-2">Corduroy Gary</h5>
+                <h6>1st July 9pm - Main Stage</h6>
+              </div>
+              <div class="min-w-[80%] snap-start md:min-w-[40%]">
+                <div
+                  class="h-80 w-full snap-center rounded-xl bg-band1 bg-cover bg-center shadow-md shadow-black/20"
+                ></div>
+                <h5 class="mt-2">Corduroy Gary</h5>
+                <h6>1st July 9pm - Main Stage</h6>
+              </div>
+              <div class="min-w-[80%] snap-start md:min-w-[40%]">
+                <div
+                  class="h-80 w-full snap-center rounded-xl bg-band1 bg-cover bg-center shadow-md shadow-black/20"
+                ></div>
+                <h5 class="mt-2">Corduroy Gary</h5>
+                <h6>1st July 9pm - Main Stage</h6>
+              </div>
+              <div class="min-w-[80%] snap-start md:min-w-[40%]">
+                <div
+                  class="h-80 w-full snap-center rounded-xl bg-band1 bg-cover bg-center shadow-md shadow-black/20"
+                ></div>
+                <h5 class="mt-2">Corduroy Gary</h5>
+                <h6>1st July 9pm - Main Stage</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lineup section -->
+        <div class="mt-20">
+          <h2>Lineup</h2>
+          <p>
+            Follow the timetable and stage to ensure you don't miss your
+            favourite artists
+          </p>
+
           <div
-            id="carousel"
-            class="flex snap-x gap-4 overflow-x-auto scroll-smooth pb-5"
+            class="relative mt-5 rounded-lg bg-zinc-800 px-2 py-4 text-zinc-200"
           >
-            <div class="min-w-[80%] snap-start md:min-w-[40%]">
-              <div
-                class="h-80 w-full snap-center rounded-xl bg-band1 bg-cover bg-center shadow-md shadow-black/20"
-              ></div>
-              <h5 class="mt-2">Corduroy Gary</h5>
-              <h6>1st July 9pm - Main Stage</h6>
-            </div>
-            <div class="min-w-[80%] snap-start md:min-w-[40%]">
-              <div
-                class="h-80 w-full snap-center rounded-xl bg-band1 bg-cover bg-center shadow-md shadow-black/20"
-              ></div>
-              <h5 class="mt-2">Corduroy Gary</h5>
-              <h6>1st July 9pm - Main Stage</h6>
-            </div>
-            <div class="min-w-[80%] snap-start md:min-w-[40%]">
-              <div
-                class="h-80 w-full snap-center rounded-xl bg-band1 bg-cover bg-center shadow-md shadow-black/20"
-              ></div>
-              <h5 class="mt-2">Corduroy Gary</h5>
-              <h6>1st July 9pm - Main Stage</h6>
-            </div>
-            <div class="min-w-[80%] snap-start md:min-w-[40%]">
-              <div
-                class="h-80 w-full snap-center rounded-xl bg-band1 bg-cover bg-center shadow-md shadow-black/20"
-              ></div>
-              <h5 class="mt-2">Corduroy Gary</h5>
-              <h6>1st July 9pm - Main Stage</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Lineup section -->
-      <div class="mx-auto mt-20 max-w-screen-lg text-zinc-900">
-        <h2>Lineup</h2>
-        <p>
-          Follow the timetable and stage to ensure you don't miss your favourite
-          artists
-        </p>
-
-        <div
-          class="relative mt-5 rounded-lg bg-zinc-800 px-2 py-4 text-zinc-200"
-        >
-          <div
-            class="absolute left-1/2 top-1/2 h-full w-4 translate-x-[-50%] translate-y-[-50%] rounded-full bg-gradient-to-b from-sky-900 via-cyan-900 to-teal-900"
-          ></div>
-          <div class="grid grid-cols-2 gap-8">
-            <h4 class="my-4 rounded-lg bg-zinc-900 p-2">1st July</h4>
-            <div></div>
-            <div class="text-right">
-              <div class="font-bold">Jackie Chaston</div>
-              <p>6pm - Sage Stage</p>
-            </div>
-            <div></div>
-            <div></div>
-            <div class="text-left">
-              <div class="font-bold">Jackie Chaston</div>
-              <p>6pm - Sage Stage</p>
-            </div>
-            <h4 class="my-4 rounded-lg bg-zinc-900 p-2">1st July</h4>
-            <div></div>
-            <div class="text-right">
-              <div class="font-bold">Jackie Chaston</div>
-              <p>6pm - Sage Stage</p>
-            </div>
-            <div></div>
-            <div></div>
-            <div class="text-left">
-              <div class="font-bold">Jackie Chaston</div>
-              <p>6pm - Sage Stage</p>
+            <div
+              class="absolute left-1/2 top-1/2 h-full w-4 translate-x-[-50%] translate-y-[-50%] rounded-full bg-gradient-to-b from-sky-900 via-cyan-900 to-teal-900"
+            ></div>
+            <div class="grid grid-cols-2 gap-8">
+              <h4 class="my-4 rounded-lg bg-zinc-900 p-2">1st July</h4>
+              <div></div>
+              <div class="text-right">
+                <div class="font-bold">Jackie Chaston</div>
+                <p>6pm - Sage Stage</p>
+              </div>
+              <div></div>
+              <div></div>
+              <div class="text-left">
+                <div class="font-bold">Jackie Chaston</div>
+                <p>6pm - Sage Stage</p>
+              </div>
+              <h4 class="my-4 rounded-lg bg-zinc-900 p-2">1st July</h4>
+              <div></div>
+              <div class="text-right">
+                <div class="font-bold">Jackie Chaston</div>
+                <p>6pm - Sage Stage</p>
+              </div>
+              <div></div>
+              <div></div>
+              <div class="text-left">
+                <div class="font-bold">Jackie Chaston</div>
+                <p>6pm - Sage Stage</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tickets section -->
-      <div class="mx-auto mt-20 max-w-screen-lg text-zinc-900">
-        <h2>Tickets</h2>
-        <table
-          class="mt-5 w-full border-collapse border border-solid border-zinc-500"
-        >
-          <thead class="text-lg font-bold">
-            <td class="border border-solid border-zinc-500 px-3 py-2">
-              Tickets
-            </td>
-            <td class="border border-solid border-zinc-500 px-3 py-2">Price</td>
-          </thead>
-          <tbody>
-            <tr>
+        <!-- Tickets section -->
+        <div class="mt-20">
+          <h2>Tickets</h2>
+          <table
+            class="mt-5 w-full border-collapse border border-solid border-zinc-500"
+          >
+            <thead class="text-lg font-bold">
               <td class="border border-solid border-zinc-500 px-3 py-2">
-                Single day ticket
-              </td>
-              <td class="border border-solid border-zinc-500 px-3 py-2">£30</td>
-            </tr>
-            <tr>
-              <td class="border border-solid border-zinc-500 px-3 py-2">
-                7 day ticket
+                Tickets
               </td>
               <td class="border border-solid border-zinc-500 px-3 py-2">
-                £100
+                Price
               </td>
-            </tr>
-          </tbody>
-          <caption class="caption-bottom">
-            Once they're gone, they're gone!
-          </caption>
-        </table>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-solid border-zinc-500 px-3 py-2">
+                  Single day ticket
+                </td>
+                <td class="border border-solid border-zinc-500 px-3 py-2">
+                  £30
+                </td>
+              </tr>
+              <tr>
+                <td class="border border-solid border-zinc-500 px-3 py-2">
+                  7 day ticket
+                </td>
+                <td class="border border-solid border-zinc-500 px-3 py-2">
+                  £100
+                </td>
+              </tr>
+            </tbody>
+            <caption class="caption-bottom">
+              Once they're gone, they're gone!
+            </caption>
+          </table>
+        </div>
       </div>
     </main>
   </body>
